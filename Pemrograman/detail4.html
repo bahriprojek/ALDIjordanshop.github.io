@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <style>
+        .rating-star {
+            font-size: 24px;
+            color: #FFD700; /* Warna bintang yang belum diisi */
+            cursor: pointer;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="p-3">AIR JORDAN</h1>
+      <div class="row d-flex align-items-center">
+        <div class="col">
+          <img src="jordan5.jpg" class="image-product" alt="" />
+        </div>
+        <div class="col">
+          <div class="container text-center">
+            <div class="row d-flex text-start flex-column gap-3">
+              <div class="col">
+                Pilih lah Sepatu Terbaik Kami, Sesuai Ukuran Kaki Anda
+              </div>
+              <div class="col">
+                <span>Ukuran Sepatu : </span>
+                <ul>
+                  <li>39</li>
+                  <li>40</li>
+                  <li>41</li>
+                  <li>42</li>
+                  <li>43</li>
+                </ul>
+              </div>
+              <div id="rating"></div>
+              <script>
+                var ratingStars = document.getElementById("rating");
+            
+                // Fungsi untuk menampilkan rating saat halaman dimuat
+                function showRating(rating) {
+                    ratingStars.innerHTML = "";
+                    for (var i = 1; i <= 5; i++) {
+                        var star = document.createElement("span");
+                        star.innerHTML = (i <= rating) ? "★" : "☆"; // ★ untuk rating yang diisi, ☆ untuk yang tidak diisi
+                        star.classList.add("rating-star");
+                        star.setAttribute("data-rating", i); // Set data-rating untuk mengetahui nilai rating saat diklik
+                        star.onclick = function() {
+                            var clickedRating = this.getAttribute("data-rating");
+                            // Kirim rating ke server atau lakukan tindakan lain sesuai kebutuhan
+                            console.log("Rating: " + clickedRating);
+                        };
+                        ratingStars.appendChild(star);
+                    }
+                }
+            
+                // Panggil fungsi showRating dengan rating awal
+                showRating(3); // Misalnya, rating awal adalah 4 bintang
+            </script>
+              <div class="col" style="font-weight: bold">Rp. 1.500.000</div>
+              <div class="col">
+                <button type="button" class="btn btn-primary">
+                  Buy Now <i class="uil uil-shopping-bag"></i>
+                </button>
+                <a href="index.html" class="btn btn-danger">Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .image-product {
+        max-width: 500px;
+        max-height: 500px;
+      }
+    </style>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
